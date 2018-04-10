@@ -17,12 +17,14 @@ root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
+# Avatar
+avatar: /images/avatar.jpg
 # menu config
 menu:
   home: /
   archives: /archives
   #about: /about
-  #categories: /categories
+  categories: /categories
   tags: /tags
   #commonweal: /404.html
 
