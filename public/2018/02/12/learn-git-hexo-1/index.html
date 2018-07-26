@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="雨蝶纷飞">
 <meta property="og:description" content="记录hexo的开发操作,包括安装hexo–部署hexo–hexo命令–操作中的报错处理–hexo管理–hexo使用的插件。一步步的积累，一步步的改善，制作自己的一个小博客  hexo 原理123hexo在执行hexo g时会在本地先把博客生成的一套静态站点放到public文件夹中，再执行hexo d时将其复制到.deploy文件夹中。Github的版本库通常建议同时附上README.md说明文件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-23T10:14:06.924Z">
+<meta property="og:updated_time" content="2018-05-06T11:46:49.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-Hexo搭建填坑">
 <meta name="twitter:description" content="记录hexo的开发操作,包括安装hexo–部署hexo–hexo命令–操作中的报错处理–hexo管理–hexo使用的插件。一步步的积累，一步步的改善，制作自己的一个小博客  hexo 原理123hexo在执行hexo g时会在本地先把博客生成的一套静态站点放到public文件夹中，再执行hexo d时将其复制到.deploy文件夹中。Github的版本库通常建议同时附上README.md说明文件">
@@ -391,7 +391,7 @@
 <h3 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span>       <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">"pageName"</span>  <span class="comment">#新建页面</span></span><br><span class="line">hexo generate             <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server               <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></span><br><span class="line">hexo deploy               <span class="comment">#将.deploy目录部署到GitHub</span></span><br></pre></td></tr></table></figure>
 <h3 id="Hexo命令简写"><a href="#Hexo命令简写" class="headerlink" title="Hexo命令简写"></a>Hexo命令简写</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
 <h3 id="复合命令"><a href="#复合命令" class="headerlink" title="复合命令"></a>复合命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g</span><br><span class="line">hexo server -g</span><br></pre></td></tr></table></figure>
-<h3 id="清除res"><a href="#清除res" class="headerlink" title="清除res"></a>清除res</h3><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，再重新生成:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean //当本地调试出现诡异现象时候，请先使用 hexo clean 清理已经生成的静态文件后重试。</span><br></pre></td></tr></table></figure></p>
+<h3 id="清除res"><a href="#清除res" class="headerlink" title="清除res"></a>清除res</h3><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，再重新生成:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean //当本地调试出现诡异现象时候，请先使用 hexo clean 清理已经生成的静态文件后重试。</span><br><span class="line">(经常更改css的时候不生效时clean然后删除.deploy_git文件夹，重新编译部署就ok)</span><br></pre></td></tr></table></figure></p>
 <h2 id="一些报错处理"><a href="#一些报错处理" class="headerlink" title="一些报错处理"></a>一些报错处理</h2><h3 id="1-ERROR-Plugin-load-failed-hexo-server"><a href="#1-ERROR-Plugin-load-failed-hexo-server" class="headerlink" title="1.ERROR Plugin load failed: hexo-server"></a>1.ERROR Plugin load failed: hexo-server</h3><p>原因：Besides, utilities are separated into a standalone module. hexo.util is not reachable anymore.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解决方法，执行命令：</span><br><span class="line">   sudo npm install hexo-server</span><br></pre></td></tr></table></figure>
 <h3 id="2-执行命令hexo-server，有如下提示："><a href="#2-执行命令hexo-server，有如下提示：" class="headerlink" title="2.执行命令hexo server，有如下提示："></a>2.执行命令hexo server，有如下提示：</h3><pre><code>Usage: hexo
@@ -471,7 +471,7 @@
   <p><span>本文标题:</span><a href="/2018/02/12/learn-git-hexo-1/">git-Hexo搭建填坑</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 T.stt 的个人博客">stt</a></p>
   <p><span>发布时间:</span>2018年02月12日 - 10:02</p>
-  <p><span>最后更新:</span>2018年02月23日 - 18:02</p>
+  <p><span>最后更新:</span>2018年05月06日 - 19:05</p>
   <p><span>原始链接:</span><a href="/2018/02/12/learn-git-hexo-1/" title="git-Hexo搭建填坑">http://630348568.github.io/2018/02/12/learn-git-hexo-1/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://630348568.github.io/2018/02/12/learn-git-hexo-1/"  aria-label="复制成功！"></i></span>
   </p>
@@ -605,7 +605,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -616,7 +616,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -627,7 +627,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
