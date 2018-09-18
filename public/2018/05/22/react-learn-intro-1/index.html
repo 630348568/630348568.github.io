@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="react," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="react的初步介绍了以下相关信息：react的特点、react如何安装、react的JSX语法、react的组件、react的state以及react的props  React 特点1.声明式设计 ———— React采用声明范式，可以轻松描述应用。2.高效 ———— React通过对DOM的模拟，最大限度地减少与DOM的交互。3.灵活 ———— React可以与已知的库或框架很好地配合。4.">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react初步学习">
+<meta property="og:url" content="http://630348568.github.io/2018/05/22/react-learn-intro-1/index.html">
+<meta property="og:site_name" content="雨蝶纷飞">
+<meta property="og:description" content="react的初步介绍了以下相关信息：react的特点、react如何安装、react的JSX语法、react的组件、react的state以及react的props  React 特点1.声明式设计 ———— React采用声明范式，可以轻松描述应用。2.高效 ———— React通过对DOM的模拟，最大限度地减少与DOM的交互。3.灵活 ———— React可以与已知的库或框架很好地配合。4.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-30T07:46:04.440Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react初步学习">
+<meta name="twitter:description" content="react的初步介绍了以下相关信息：react的特点、react如何安装、react的JSX语法、react的组件、react的state以及react的props  React 特点1.声明式设计 ———— React采用声明范式，可以轻松描述应用。2.高效 ———— React通过对DOM的模拟，最大限度地减少与DOM的交互。3.灵活 ———— React可以与已知的库或框架很好地配合。4.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://630348568.github.io/2018/05/22/react-learn-intro-1/"/>
+
+
+
+
+
+  <title>react初步学习 | 雨蝶纷飞</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">雨蝶纷飞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">在学习中进步，在进步中前行，只有不断的累积学习才不觉得空虚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="https://2ue.github.io/aboutMe/dist/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://630348568.github.io/2018/05/22/react-learn-intro-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="stt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雨蝶纷飞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">react初步学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">T.2stt发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T21:21:45+08:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-base/" itemprop="url" rel="index">
+                    <span itemprop="name">react-base</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>react的初步介绍了以下相关信息：<br>react的特点、react如何安装、react的JSX语法、react的组件、react的state以及react的props</p>
+</blockquote>
+<h2 id="React-特点"><a href="#React-特点" class="headerlink" title="React 特点"></a>React 特点</h2><p>1.声明式设计 ———— React采用声明范式，可以轻松描述应用。<br>2.高效 ———— React通过对DOM的模拟，最大限度地减少与DOM的交互。<br>3.灵活 ———— React可以与已知的库或框架很好地配合。<br>4.JSX  ————  JSX 是 JavaScript 语法的扩展。React 开发不一定使用 JSX ，但我们建议使用它。<br>5.组件  ————  通过 React 构建组件，使得代码更加容易得到复用，能够很好的应用在大项目的开发中。<br>6.单向响应的数据流  ————  React 实现了单向响应的数据流，从而减少了重复代码，这也是它为什么比传统数据绑定更简单。<font color="red">（类似于wxpromise的setData）</font></p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span> /&gt;</span><br><span class="line">    &lt;title&gt;Hello React!&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.bootcss.com/react/15.4.2/react.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"example"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/babel"</span>&gt;</span><br><span class="line">      ReactDOM.render(</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;/h1&gt;,</span><br><span class="line">        document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">      );</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="实例解析："><a href="#实例解析：" class="headerlink" title="实例解析："></a>实例解析：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">react.min.js - React 的核心库</span><br><span class="line">react-dom.min.js - 提供与 DOM 相关的功能</span><br><span class="line">babel.min.js - Babel 可以将 ES6 代码转为 ES5 代码，这样我们就能在目前不支持 ES6 浏览器上执行 React 代码。Babel 内嵌了对 JSX 的支持。通过将 Babel 和 babel-sublime 包（package）一同使用可以让源码的语法渲染上升到一个全新的水平。</span><br><span class="line">以下代码是将一个 h1 标题，插入 id=<span class="string">"example"</span> 节点中:</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello, world!&lt;/h1&gt;,</span><br><span class="line">    document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="React-安装"><a href="#React-安装" class="headerlink" title="React 安装"></a>React 安装</h2><h3 id="1-直接使用-BootCDN-的-React-CDN-库"><a href="#1-直接使用-BootCDN-的-React-CDN-库" class="headerlink" title="1.直接使用 BootCDN 的 React CDN 库"></a>1.直接使用 BootCDN 的 React CDN 库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://cdn.bootcss.com/react/15.4.2/react.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">使用实例</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span> /&gt;</span><br><span class="line">    &lt;title&gt;Hello React!&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.bootcss.com/react/15.4.2/react.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"example"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/babel"</span>&gt;</span><br><span class="line">      ReactDOM.render(</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;/h1&gt;,</span><br><span class="line">        document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">      );</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><pre><code>如果我们需要使用 JSX，则 &lt;script&gt; 标签的 type 属性需要设置为 text/babel。
+</code></pre><h3 id="2-通过-npm-使用-React"><a href="#2-通过-npm-使用-React" class="headerlink" title="2.通过 npm 使用 React"></a>2.通过 npm 使用 React</h3><pre><code>create-react-app 是来自于 Facebook，通过该命令我们无需配置就能快速构建 React 开发环境。
+create-react-app 自动创建的项目是基于 Webpack + ES6 。
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g create-react-app</span><br><span class="line">$ create-react-app my-app</span><br><span class="line">$ <span class="built_in">cd</span> my-app/</span><br><span class="line">$ npm start</span><br><span class="line"></span><br><span class="line">项目的目录结构如下：</span><br><span class="line">my-app/</span><br><span class="line">  README.md</span><br><span class="line">  node_modules/</span><br><span class="line">  package.json</span><br><span class="line">  .gitignore</span><br><span class="line">  public/</span><br><span class="line">    favicon.ico</span><br><span class="line">    index.html</span><br><span class="line">  src/</span><br><span class="line">    App.css</span><br><span class="line">    App.js</span><br><span class="line">    App.test.js</span><br><span class="line">    index.css</span><br><span class="line">    index.js</span><br><span class="line">    logo.svg</span><br><span class="line"></span><br><span class="line">在浏览器中打开 http://localhost:3000/</span><br></pre></td></tr></table></figure>
+<h4 id="尝试修改-src-App-js-文件代码："><a href="#尝试修改-src-App-js-文件代码：" class="headerlink" title="尝试修改 src/App.js 文件代码："></a>尝试修改 src/App.js 文件代码：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from <span class="string">'react'</span>;</span><br><span class="line">import logo from <span class="string">'./logo.svg'</span>;</span><br><span class="line">import <span class="string">'./App.css'</span>;</span><br><span class="line"> </span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">        &lt;div className=<span class="string">"App-header"</span>&gt;</span><br><span class="line">          &lt;img src=&#123;logo&#125; className=<span class="string">"App-logo"</span> alt=<span class="string">"logo"</span> /&gt;</span><br><span class="line">          &lt;h2&gt;欢迎来到菜鸟教程&lt;/h2&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;p className=<span class="string">"App-intro"</span>&gt;</span><br><span class="line">          你可以在 &lt;code&gt;src/App.js&lt;/code&gt; 文件中修改。</span><br><span class="line">        &lt;/p&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">export</span> default App;</span><br></pre></td></tr></table></figure>
+<h2 id="React-JSX"><a href="#React-JSX" class="headerlink" title="React JSX"></a>React JSX</h2><pre><code>React 使用 JSX 来替代常规的 JavaScript。JSX 是一个看起来很像 XML 的 JavaScript 语法扩展。
+我们不需要一定使用 JSX，但它有以下优点：
+    1.JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。
+    2.它是类型安全的，在编译过程中就能发现错误。
+    3.使用 JSX 编写模板更加简单快速。
+</code></pre><h3 id="使用-JSX"><a href="#使用-JSX" class="headerlink" title="使用 JSX"></a>使用 JSX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JSX 看起来类似 HTML ，我们可以看下实例:</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello, world!&lt;/h1&gt;,</span><br><span class="line">    document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="如何嵌入多层元素"><a href="#如何嵌入多层元素" class="headerlink" title="如何嵌入多层元素"></a>如何嵌入多层元素</h3><pre><code>我们可以在以上代码中嵌套多个 HTML 标签，需要使用一个 div 元素包裹它，
+实例中的 p 元素添加了自定义属性 data-myattribute，添加自定义属性需要使用 data- 前缀。
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;菜鸟教程&lt;/h1&gt;</span><br><span class="line">    &lt;h2&gt;欢迎学习 React&lt;/h2&gt;</span><br><span class="line">    &lt;p data-myattribute = <span class="string">"somevalue"</span>&gt;这是一个很不错的 JavaScript 库!&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    ,</span><br><span class="line">    document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="独立文件"><a href="#独立文件" class="headerlink" title="独立文件"></a>独立文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">React JSX 代码可以放在一个独立文件上，例如我们创建一个 helloworld_react.js 文件，代码如下：</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;h1&gt;Hello, world!&lt;/h1&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br><span class="line">然后在 HTML 文件中引入该 JS 文件：</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id=<span class="string">"example"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/babel"</span> src=<span class="string">"helloworld_react.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="JavaScript-表达式"><a href="#JavaScript-表达式" class="headerlink" title="JavaScript 表达式"></a>JavaScript 表达式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">JSX 中使用 JavaScript 表达式。表达式写在花括号 &#123;&#125; 中。实例如下：</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;&#123;1+1&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;/div&gt;,</span><br><span class="line">    document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br><span class="line">在 JSX 中不能使用 <span class="keyword">if</span> <span class="keyword">else</span> 语句，但可以使用 conditional (三元运算) 表达式来替代。</span><br><span class="line">以下实例中如果变量 i 等于 1 浏览器将输出 <span class="literal">true</span>, 如果修改 i 的值，则会输出 <span class="literal">false</span>.</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">"example"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/babel"</span>&gt;</span><br><span class="line">  var i = 1;</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">  	&lt;div&gt;</span><br><span class="line">  	  &lt;h1&gt;&#123;i == 1 ? <span class="string">'True!'</span> : <span class="string">'False'</span>&#125;&lt;/h1&gt;</span><br><span class="line">   &lt;/div&gt;,</span><br><span class="line">  	document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">  );</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">React 推荐使用内联样式。我们可以使用 camelCase 语法来设置内联样式. React 会在指定元素数字后自动添加 px 。</span><br><span class="line">以下实例演示了为 h1 元素添加 myStyle 内联样式：</span><br><span class="line">var myStyle = &#123;</span><br><span class="line">     fontSize: 100,</span><br><span class="line">     color: <span class="string">'#FF0000'</span></span><br><span class="line">&#125;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  	&lt;h1 style = &#123;myStyle&#125;&gt;菜鸟教程&lt;/h1&gt;,</span><br><span class="line">  	document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">注释需要写在花括号中，实例如下：</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;菜鸟教程&lt;/h1&gt;</span><br><span class="line">    &#123;/*注释...*/&#125;</span><br><span class="line">     &lt;/div&gt;,</span><br><span class="line">    document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="关于React注释的问题"><a href="#关于React注释的问题" class="headerlink" title="关于React注释的问题"></a>关于React注释的问题</h3><pre><code>关于React注释的问题：
+1、在标签内部的注释需要花括号
+2、在标签外的的注释不能使用花括号
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;菜鸟教程&lt;/h1&gt;</span><br><span class="line">    &#123;/*注释...*/&#125;</span><br><span class="line">     &lt;/div&gt;,</span><br><span class="line">    document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">JSX 允许在模板中插入数组，数组会自动展开所有成员：</span><br><span class="line">var arr = [</span><br><span class="line">  &lt;h1&gt;菜鸟教程&lt;/h1&gt;,</span><br><span class="line">  &lt;h2&gt;学的不仅是技术，更是梦想！&lt;/h2&gt;,</span><br><span class="line">];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;div&gt;&#123;arr&#125;&lt;/div&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="HTML-标签-vs-React-组件"><a href="#HTML-标签-vs-React-组件" class="headerlink" title="HTML 标签 vs. React 组件"></a>HTML 标签 vs. React 组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">React 可以渲染 HTML 标签 (strings) 或 React 组件 (classes)。</span><br><span class="line"></span><br><span class="line">要渲染 HTML 标签，只需在 JSX 里使用小写字母的标签名。</span><br><span class="line">var myDivElement = &lt;div className=<span class="string">"foo"</span> /&gt;;</span><br><span class="line">ReactDOM.render(myDivElement, document.getElementById(<span class="string">'example'</span>));</span><br><span class="line"></span><br><span class="line">要渲染 React 组件，只需创建一个大写字母开头的本地变量。</span><br><span class="line">var MyComponent = React.createClass(&#123;/*...*/&#125;);</span><br><span class="line">var myElement = &lt;MyComponent someProperty=&#123;<span class="literal">true</span>&#125; /&gt;;</span><br><span class="line">ReactDOM.render(myElement, document.getElementById(<span class="string">'example'</span>));</span><br><span class="line">React 的 JSX 使用大、小写的约定来区分本地组件的类和 HTML 标签。</span><br></pre></td></tr></table></figure>
+<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意:"></a>注意:</h3><pre><code>由于 JSX 就是 JavaScript，一些标识符像 class 和 for 不建议作为 XML 属性名。
+作为替代，React DOM 使用 className 和 htmlFor 来做对应的属性。
+</code></pre><h2 id="React-组件"><a href="#React-组件" class="headerlink" title="React 组件"></a>React 组件</h2><pre><code>封装一个输出 &quot;Hello World！&quot; 的组件，组件名为 HelloMessage：
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var HelloMessage = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &lt;h1&gt;Hello World！&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage /&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="实例解析：-1"><a href="#实例解析：-1" class="headerlink" title="实例解析："></a>实例解析：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">React.createClass 方法用于生成一个组件类 HelloMessage。</span><br><span class="line">&lt;HelloMessage /&gt; 实例组件类并输出信息。</span><br></pre></td></tr></table></figure>
+<h3 id="注意-2"><a href="#注意-2" class="headerlink" title="注意:"></a>注意:</h3><pre><code>1.原生 HTML 元素名以小写字母开头，而自定义的 React 类名以大写字母开头，比如 HelloMessage 不能写成 helloMessage。
+2.组件类只能包含一个顶层标签，否则也会报错。
+</code></pre><h3 id="向组件传递参数，使用-this-props-对象"><a href="#向组件传递参数，使用-this-props-对象" class="headerlink" title="向组件传递参数，使用 this.props 对象"></a>向组件传递参数，使用 this.props 对象</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var HelloMessage = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &lt;h1&gt;Hello &#123;this.props.name&#125;&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage name=<span class="string">"Runoob"</span> /&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<font color="red"><br>注意:在添加属性时， class 属性需要写成 className ，for 属性需要写成 htmlFor ，<br>这是因为 class 和 for 是 JavaScript 的保留字。<br></font>
+
+<h3 id="复合组件"><a href="#复合组件" class="headerlink" title="复合组件"></a>复合组件</h3><pre><code>我们可以通过创建多个组件来合成一个组件，即把组件的不同功能点进行分离。
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">以下实例我们实现了输出网站名字和网址的组件：</span><br><span class="line">var WebSite = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Name name=&#123;this.props.name&#125; /&gt;</span><br><span class="line">        &lt;Link site=&#123;this.props.site&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">var Name = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> (</span><br><span class="line">      &lt;h1&gt;&#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">var Link = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> (</span><br><span class="line">      &lt;a href=&#123;this.props.site&#125;&gt;</span><br><span class="line">        &#123;this.props.site&#125;</span><br><span class="line">      &lt;/a&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;WebSite name=<span class="string">"菜鸟教程"</span> site=<span class="string">" http://www.runoob.com"</span> /&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="React-State-状态"><a href="#React-State-状态" class="headerlink" title="React State(状态)"></a>React State(状态)</h2><pre><code>React 把组件看成是一个状态机（State Machines）。React只需更新组件的 state，然后根据新的 state 重新渲染用户界面（不要操作 DOM）。
+以下实例中创建了 LikeButton 组件，getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。
+当用户点击组件，导致状态变化，this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/babel"</span>&gt;</span><br><span class="line">	//组件类(首字母大写且只能包含一个顶层标签)</span><br><span class="line">    var LikeButton = React.createClass(&#123;</span><br><span class="line">        getInitialState: <span class="function"><span class="title">function</span></span>() &#123;/*这个方法名称是已经定义好的，不能改名称。用于定义初始状态*/</span><br><span class="line">        	<span class="built_in">return</span> &#123;liked: <span class="literal">false</span>&#125;;</span><br><span class="line">        &#125;,</span><br><span class="line">        handleClick: <span class="keyword">function</span>(event) &#123;</span><br><span class="line">        	/*state的值发生变化，自动调用this.render方法渲染*/</span><br><span class="line">            this.setState(&#123;liked: !this.state.liked&#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            var text = this.state.liked ? <span class="string">'喜欢'</span> : <span class="string">'不喜欢'</span>;</span><br><span class="line">            //但是如果有元素内嵌，需要多行展示，则需要 <span class="built_in">return</span>()，否则报错。</span><br><span class="line">            <span class="built_in">return</span> (</span><br><span class="line">                &lt;p onClick=&#123;this.handleClick&#125;&gt;</span><br><span class="line">            	你&lt;b&gt;&#123;text&#125;&lt;/b&gt;我。点我切换状态。</span><br><span class="line">            &lt;/p&gt;</span><br><span class="line">          );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">    	&lt;LikeButton /&gt;,</span><br><span class="line">    	document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">    );</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="React-Props"><a href="#React-Props" class="headerlink" title="React Props"></a>React Props</h2><pre><code>state 和 props 主要的区别在于 props 是不可变的，而 state 可以根据与用户交互来改变。
+这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 props 来传递数据。
+</code></pre><h3 id="使用-Props"><a href="#使用-Props" class="headerlink" title="使用 Props"></a>使用 Props</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var HelloMessage = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">      <span class="built_in">return</span> &lt;h1&gt;Hello &#123;this.props.name&#125;&lt;/h1&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    &lt;HelloMessage name=<span class="string">"Runoob"</span> /&gt;,</span><br><span class="line">    document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
+<h3 id="默认-Props"><a href="#默认-Props" class="headerlink" title="默认 Props"></a>默认 Props</h3><pre><code>可以通过 getDefaultProps() 方法为 props 设置默认值，实例如下：
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var HelloMessage = React.createClass(&#123;</span><br><span class="line">  getDefaultProps: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      name: <span class="string">'Runoob'</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &lt;h1&gt;Hello &#123;this.props.name&#125;&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage /&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="State-和-Props"><a href="#State-和-Props" class="headerlink" title="State 和 Props"></a>State 和 Props</h3><pre><code>以下实例演示了如何在应用中组合使用 state 和 props 。我们可以在父组件中设置 state， 
+并通过在子组件上使用 props 将其传递到子组件上。在 render 函数中, 我们设置 name 和 site 来获取父组件传递过来的数据。
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span> /&gt;</span><br><span class="line">    &lt;title&gt;菜鸟教程 React 实例&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.bootcss.com/react/15.4.2/react.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">	&lt;script src=<span class="string">"https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">	&lt;script src=<span class="string">"https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"example"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/babel"</span>&gt;</span><br><span class="line">    var WebSite = React.createClass(&#123;</span><br><span class="line">      getInitialState: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> &#123;</span><br><span class="line">          name: <span class="string">"菜鸟教程"</span>,</span><br><span class="line">          site: <span class="string">"http://www.runoob.com"</span></span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;,</span><br><span class="line">      render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> (</span><br><span class="line">          &lt;div&gt;</span><br><span class="line">            &lt;Name name=&#123;this.state.name&#125; /&gt;</span><br><span class="line">            &lt;Link site=&#123;this.state.site&#125; /&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    var Name = React.createClass(&#123;</span><br><span class="line">      render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> (</span><br><span class="line">          &lt;h1&gt;&#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    var Link = React.createClass(&#123;</span><br><span class="line">      render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> (</span><br><span class="line">          &lt;a href=&#123;this.props.site&#125;&gt;</span><br><span class="line">            &#123;this.props.site&#125;</span><br><span class="line">          &lt;/a&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">      &lt;WebSite /&gt;,</span><br><span class="line">      document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">    );</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Props-验证"><a href="#Props-验证" class="headerlink" title="Props 验证"></a>Props 验证</h3><pre><code>Props 验证使用 propTypes，它可以保证我们的应用组件被正确使用，React.PropTypes提供很多验证器 (validator) 来验证传入数据是否有效。
+当向 props 传入无效数据时，JavaScript 控制台会抛出警告。
+</code></pre><h4 id="单个"><a href="#单个" class="headerlink" title="单个"></a>单个</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">以下实例创建一个 Mytitle 组件，属性 title 是必须的且是字符串，非字符串类型会自动转换为字符串 ：</span><br><span class="line">var title = <span class="string">"菜鸟教程"</span>;</span><br><span class="line">// var title = 123;</span><br><span class="line">var MyTitle = React.createClass(&#123;</span><br><span class="line">  propTypes: &#123;</span><br><span class="line">    title: React.PropTypes.string.isRequired,</span><br><span class="line">  &#125;,</span><br><span class="line"> </span><br><span class="line">  render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">     <span class="built_in">return</span> &lt;h1&gt; &#123;this.props.title&#125; &lt;/h1&gt;;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;MyTitle title=&#123;title&#125; /&gt;,</span><br><span class="line">    document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="多个"><a href="#多个" class="headerlink" title="多个"></a>多个</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+    
+      
+  <div class="post_end_word">
+    <p>THE END&nbsp;<i class="fa fa-fw fa-heart"></i>&nbsp;THANKS FOR YOU READING</p>
+  </div>
+
+
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/reward/wechat-reward-image.png" alt="stt 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/reward/alipay-reward-image.png" alt="stt 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript"  src="https://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="https://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2018/05/22/react-learn-intro-1/">react初步学习</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 T.2stt 的个人博客">stt</a></p>
+  <p><span>发布时间:</span>2018年05月22日 - 21:05</p>
+  <p><span>最后更新:</span>2018年07月30日 - 15:07</p>
+  <p><span>原始链接:</span><a href="/2018/05/22/react-learn-intro-1/" title="react初步学习">http://630348568.github.io/2018/05/22/react-learn-intro-1/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://630348568.github.io/2018/05/22/react-learn-intro-1/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a>&nbsp;&nbsp;&nbsp;&nbsp;转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          html: false,
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));
+</script>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/07/wxpromise-element/" rel="next" title="wxpromise的元素（试图容器）">
+                <i class="fa fa-chevron-left"></i> wxpromise的元素（试图容器）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/30/react-learn-intro-2/" rel="prev" title="react项目中的统计">
+                react项目中的统计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="stt" />
+            
+              <p class="site-author-name" itemprop="name">stt</p>
+              <p class="site-description motion-element" itemprop="description">蝶儿在雨中飞翔，越飞越累，却不想停下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/2ue" target="_blank" title="MrGithub">
+                    
+                      <i class="fa fa-fw fa-github"></i>MrGithub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/Tonicof" target="_blank" title="MrWeibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>MrWeibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/630348568" target="_blank" title="sttGithub">
+                    
+                      <i class="fa fa-fw fa-github"></i>sttGithub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://segmentfault.com/u/j2ue" target="_blank" title="MrSegment">
+                    
+                      <i class="fa fa-fw fa-globe"></i>MrSegment</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React-特点"><span class="nav-number">1.</span> <span class="nav-text">React 特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">2.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例解析："><span class="nav-number">2.1.</span> <span class="nav-text">实例解析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-安装"><span class="nav-number">3.</span> <span class="nav-text">React 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-直接使用-BootCDN-的-React-CDN-库"><span class="nav-number">3.1.</span> <span class="nav-text">1.直接使用 BootCDN 的 React CDN 库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">3.1.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-通过-npm-使用-React"><span class="nav-number">3.2.</span> <span class="nav-text">2.通过 npm 使用 React</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#尝试修改-src-App-js-文件代码："><span class="nav-number">3.2.1.</span> <span class="nav-text">尝试修改 src/App.js 文件代码：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-JSX"><span class="nav-number">4.</span> <span class="nav-text">React JSX</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-JSX"><span class="nav-number">4.1.</span> <span class="nav-text">使用 JSX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何嵌入多层元素"><span class="nav-number">4.2.</span> <span class="nav-text">如何嵌入多层元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立文件"><span class="nav-number">4.3.</span> <span class="nav-text">独立文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-表达式"><span class="nav-number">4.4.</span> <span class="nav-text">JavaScript 表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式"><span class="nav-number">4.5.</span> <span class="nav-text">样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">4.6.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于React注释的问题"><span class="nav-number">4.7.</span> <span class="nav-text">关于React注释的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">4.8.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-标签-vs-React-组件"><span class="nav-number">4.9.</span> <span class="nav-text">HTML 标签 vs. React 组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意-1"><span class="nav-number">4.10.</span> <span class="nav-text">注意:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-组件"><span class="nav-number">5.</span> <span class="nav-text">React 组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例解析：-1"><span class="nav-number">5.1.</span> <span class="nav-text">实例解析：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意-2"><span class="nav-number">5.2.</span> <span class="nav-text">注意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向组件传递参数，使用-this-props-对象"><span class="nav-number">5.3.</span> <span class="nav-text">向组件传递参数，使用 this.props 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复合组件"><span class="nav-number">5.4.</span> <span class="nav-text">复合组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-State-状态"><span class="nav-number">6.</span> <span class="nav-text">React State(状态)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Props"><span class="nav-number">7.</span> <span class="nav-text">React Props</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Props"><span class="nav-number">7.1.</span> <span class="nav-text">使用 Props</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认-Props"><span class="nav-number">7.2.</span> <span class="nav-text">默认 Props</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State-和-Props"><span class="nav-number">7.3.</span> <span class="nav-text">State 和 Props</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Props-验证"><span class="nav-number">7.4.</span> <span class="nav-text">Props 验证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单个"><span class="nav-number">7.4.1.</span> <span class="nav-text">单个</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多个"><span class="nav-number">7.4.2.</span> <span class="nav-text">多个</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stt</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <a class="theme-link" target="_blank" href="https://github.com/2ue">2ue</a> 改造
+</div>
+
+
+
+<div>
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+    <div class="powered-by"></div>
+    <span class="post-count">共字</span>
+  </div>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

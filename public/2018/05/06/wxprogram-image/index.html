@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="wxprogram-image," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="此章节记载的是微信小程序关于图片的一些功能。wx.chooseImage(OBJECT),从本地相册选择图片或使用相机拍照。wx.previewImage(OBJECT),图片的预览。wx.getImageInfo(OBJECT),获取图片信息。wx.saveImageToPhotosAlbum(OBJECT),保存图片到系统相册。需要用户授权 scope.writePhotosAlbum  w">
+<meta name="keywords" content="wxprogram-image">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wxpromise的图片">
+<meta property="og:url" content="http://630348568.github.io/2018/05/06/wxprogram-image/index.html">
+<meta property="og:site_name" content="雨蝶纷飞">
+<meta property="og:description" content="此章节记载的是微信小程序关于图片的一些功能。wx.chooseImage(OBJECT),从本地相册选择图片或使用相机拍照。wx.previewImage(OBJECT),图片的预览。wx.getImageInfo(OBJECT),获取图片信息。wx.saveImageToPhotosAlbum(OBJECT),保存图片到系统相册。需要用户授权 scope.writePhotosAlbum  w">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-30T01:55:33.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wxpromise的图片">
+<meta name="twitter:description" content="此章节记载的是微信小程序关于图片的一些功能。wx.chooseImage(OBJECT),从本地相册选择图片或使用相机拍照。wx.previewImage(OBJECT),图片的预览。wx.getImageInfo(OBJECT),获取图片信息。wx.saveImageToPhotosAlbum(OBJECT),保存图片到系统相册。需要用户授权 scope.writePhotosAlbum  w">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://630348568.github.io/2018/05/06/wxprogram-image/"/>
+
+
+
+
+
+  <title>wxpromise的图片 | 雨蝶纷飞</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">雨蝶纷飞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">在学习中进步，在进步中前行，只有不断的累积学习才不觉得空虚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="https://2ue.github.io/aboutMe/dist/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://630348568.github.io/2018/05/06/wxprogram-image/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="stt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雨蝶纷飞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">wxpromise的图片</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">T.2stt发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-06T13:54:43+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/wxprogram/" itemprop="url" rel="index">
+                    <span itemprop="name">wxprogram</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>此章节记载的是微信小程序关于图片的一些功能。<br>wx.chooseImage(OBJECT),从本地相册选择图片或使用相机拍照。<br>wx.previewImage(OBJECT),图片的预览。<br>wx.getImageInfo(OBJECT),获取图片信息。<br>wx.saveImageToPhotosAlbum(OBJECT),保存图片到系统相册。需要用户授权 scope.writePhotosAlbum</p>
+</blockquote>
+<h2 id="wx-chooseImage"><a href="#wx-chooseImage" class="headerlink" title="wx.chooseImage"></a>wx.chooseImage</h2><pre><code>chooseImage只是选择图片，限制图片选择张数+图片选择是否压缩等名获取到文件信息（路劲，大小），如果需要上传则选择别的API。
+wx.previewImage(OBJECT),预览图片。
+</code></pre><h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wx.chooseImage(&#123;</span><br><span class="line">  count: 1, // 默认9</span><br><span class="line">  sizeType: [<span class="string">'original'</span>, <span class="string">'compressed'</span>], // 可以指定是原图还是压缩图，默认二者都有</span><br><span class="line">  sourceType: [<span class="string">'album'</span>, <span class="string">'camera'</span>], // 可以指定来源是相册还是相机，默认二者都有</span><br><span class="line">  success: <span class="keyword">function</span> (res) &#123;</span><br><span class="line">    // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片</span><br><span class="line">    var tempFilePaths = res.tempFilePaths</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="OBJECT参数说明"><a href="#OBJECT参数说明" class="headerlink" title="OBJECT参数说明"></a>OBJECT参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">必填</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font face="fantasy">count</font></td>
+<td style="text-align:center">Number</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">最多可以选择的图片张数，默认9</td>
+</tr>
+<tr>
+<td><font face="fantasy">sizeType</font></td>
+<td style="text-align:center">StringArray</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">original 原图，compressed 压缩图，默认二者都有</td>
+</tr>
+<tr>
+<td><font face="fantasy">sourceType</font></td>
+<td style="text-align:center">StringArray</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">album 从相册选图，camera 使用相机，默认二者都有</td>
+</tr>
+<tr>
+<td><font face="fantasy">success</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">成功则返回图片的本地文件路径列表 tempFilePaths</td>
+</tr>
+<tr>
+<td><font face="fantasy">fail</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">接口调用失败的回调函数</td>
+</tr>
+<tr>
+<td><font face="fantasy">complete</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">接口调用结束的回调函数（调用成功、失败都会执行）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wx-previewImage"><a href="#wx-previewImage" class="headerlink" title="wx.previewImage"></a>wx.previewImage</h2><pre><code>预览图片。
+</code></pre><h3 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wx.previewImage(&#123;</span><br><span class="line">  current: <span class="string">''</span>, // 当前显示图片的http链接</span><br><span class="line">  urls: [] // 需要预览的图片http链接列表</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="OBJECT参数说明-1"><a href="#OBJECT参数说明-1" class="headerlink" title="OBJECT参数说明"></a>OBJECT参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">必填</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font face="fantasy">current</font></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">当前显示图片的链接，不填则默认为 urls 的第一张</td>
+</tr>
+<tr>
+<td><font face="fantasy">urls</font></td>
+<td style="text-align:center">StringArray</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">需要预览的图片链接列表</td>
+</tr>
+<tr>
+<td><font face="fantasy">success</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">接口调用成功的回调函数</td>
+</tr>
+<tr>
+<td><font face="fantasy">fail</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">接口调用失败的回调函数</td>
+</tr>
+<tr>
+<td><font face="fantasy">complete</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">接口调用结束的回调函数（调用成功、失败都会执行）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wx-getImageInfo"><a href="#wx-getImageInfo" class="headerlink" title="wx.getImageInfo"></a>wx.getImageInfo</h2><pre><code>获取图片信息。
+</code></pre><h3 id="示例代码-2"><a href="#示例代码-2" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">wx.getImageInfo(&#123;</span><br><span class="line">  src: <span class="string">'images/a.jpg'</span>,</span><br><span class="line">  success: <span class="keyword">function</span> (res) &#123;</span><br><span class="line">    console.log(res.width)</span><br><span class="line">    console.log(res.height)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">wx.chooseImage(&#123;</span><br><span class="line">  success: <span class="keyword">function</span> (res) &#123;</span><br><span class="line">    wx.getImageInfo(&#123;</span><br><span class="line">      src: res.tempFilePaths[0],</span><br><span class="line">      success: <span class="keyword">function</span> (res) &#123;</span><br><span class="line">        console.log(res.width)</span><br><span class="line">        console.log(res.height)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="OBJECT参数说明-2"><a href="#OBJECT参数说明-2" class="headerlink" title="OBJECT参数说明"></a>OBJECT参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">必填</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font face="fantasy">src</font></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">图片的路径，可以是相对路径，临时文件路径，存储文件路径，网络图片路径</td>
+</tr>
+<tr>
+<td><font face="fantasy">success</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">接口调用成功的回调函数</td>
+</tr>
+<tr>
+<td><font face="fantasy">fail</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">接口调用失败的回调函数</td>
+</tr>
+<tr>
+<td><font face="fantasy">complete</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">接口调用结束的回调函数（调用成功、失败都会执行）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.success返回参数说明：</span><br><span class="line">  1.1 width----StringArra类型，图片的本地文件路径列表</span><br><span class="line">  1.2 height----ObjectArray类型，图片的本地文件列表，每一项是一个 File 对象</span><br><span class="line">4.File 对象结构如下:</span><br><span class="line">  4.1 path----Number类型，图片宽度，单位px</span><br><span class="line">  4.2 size----Number类型，图片宽度，单位px</span><br><span class="line">  4.3 path----String类型，返回图片的本地路径</span><br><span class="line">  4.4 orientation----String类型，返回图片的方向，有效值见下表</span><br><span class="line">  4.5 <span class="built_in">type</span>----String类型，返回图片的格式</span><br></pre></td></tr></table></figure>
+<h4 id="orientation参数说明："><a href="#orientation参数说明：" class="headerlink" title="orientation参数说明："></a>orientation参数说明：</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">枚举值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font face="fantasy">up</font></td>
+<td style="text-align:center">默认</td>
+</tr>
+<tr>
+<td><font face="fantasy">down</font></td>
+<td style="text-align:center">180度旋转</td>
+</tr>
+<tr>
+<td><font face="fantasy">left</font></td>
+<td style="text-align:center">逆时针旋转90度</td>
+</tr>
+<tr>
+<td><font face="fantasy">right</font></td>
+<td style="text-align:center">顺时针旋转90度</td>
+</tr>
+<tr>
+<td><font face="fantasy">up-mirrored</font></td>
+<td style="text-align:center">同up，但水平翻转</td>
+</tr>
+<tr>
+<td><font face="fantasy">down-mirrored</font></td>
+<td style="text-align:center">同down，但水平翻转</td>
+</tr>
+<tr>
+<td><font face="fantasy">left-mirrored</font></td>
+<td style="text-align:center">同left，但垂直翻转</td>
+</tr>
+<tr>
+<td><font face="fantasy">right-mirrored</font></td>
+<td style="text-align:center">同right，但垂直翻转</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wx-saveImageToPhotosAlbum"><a href="#wx-saveImageToPhotosAlbum" class="headerlink" title="wx.saveImageToPhotosAlbum"></a>wx.saveImageToPhotosAlbum</h2><pre><code>保存图片到系统相册。需要用户授权 scope.writePhotosAlbum。
+</code></pre><h3 id="示例代码-3"><a href="#示例代码-3" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">    success(res) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="OBJECT参数说明-3"><a href="#OBJECT参数说明-3" class="headerlink" title="OBJECT参数说明"></a>OBJECT参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">必填</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font face="fantasy">filePath</font></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">图片文件路径，可以是临时文件路径也可以是永久文件路径，不支持网络图片路径</td>
+</tr>
+<tr>
+<td><font face="fantasy">success</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">接口调用成功的回调函数</td>
+</tr>
+<tr>
+<td><font face="fantasy">fail</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">接口调用失败的回调函数</td>
+</tr>
+<tr>
+<td><font face="fantasy">complete</font></td>
+<td style="text-align:center">Function</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">接口调用结束的回调函数（调用成功、失败都会执行）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.success返回参数说明：</span><br><span class="line">	errMsg----String类型，调用结果</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+    
+      
+  <div class="post_end_word">
+    <p>THE END&nbsp;<i class="fa fa-fw fa-heart"></i>&nbsp;THANKS FOR YOU READING</p>
+  </div>
+
+
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/reward/wechat-reward-image.png" alt="stt 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/reward/alipay-reward-image.png" alt="stt 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript"  src="https://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="https://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2018/05/06/wxprogram-image/">wxpromise的图片</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 T.2stt 的个人博客">stt</a></p>
+  <p><span>发布时间:</span>2018年05月06日 - 13:05</p>
+  <p><span>最后更新:</span>2018年07月30日 - 09:07</p>
+  <p><span>原始链接:</span><a href="/2018/05/06/wxprogram-image/" title="wxpromise的图片">http://630348568.github.io/2018/05/06/wxprogram-image/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://630348568.github.io/2018/05/06/wxprogram-image/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a>&nbsp;&nbsp;&nbsp;&nbsp;转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          html: false,
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));
+</script>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/wxprogram-image/" rel="tag"># wxprogram-image</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/04/vue-learn-3/" rel="next" title="vue---脚手架介绍">
+                <i class="fa fa-chevron-left"></i> vue---脚手架介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/06/markdown-font/" rel="prev" title="markdown编辑器语法——文字">
+                markdown编辑器语法——文字 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="stt" />
+            
+              <p class="site-author-name" itemprop="name">stt</p>
+              <p class="site-description motion-element" itemprop="description">蝶儿在雨中飞翔，越飞越累，却不想停下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/2ue" target="_blank" title="MrGithub">
+                    
+                      <i class="fa fa-fw fa-github"></i>MrGithub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/Tonicof" target="_blank" title="MrWeibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>MrWeibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/630348568" target="_blank" title="sttGithub">
+                    
+                      <i class="fa fa-fw fa-github"></i>sttGithub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://segmentfault.com/u/j2ue" target="_blank" title="MrSegment">
+                    
+                      <i class="fa fa-fw fa-globe"></i>MrSegment</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#wx-chooseImage"><span class="nav-number">1.</span> <span class="nav-text">wx.chooseImage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例代码"><span class="nav-number">1.1.</span> <span class="nav-text">示例代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OBJECT参数说明"><span class="nav-number">1.2.</span> <span class="nav-text">OBJECT参数说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wx-previewImage"><span class="nav-number">2.</span> <span class="nav-text">wx.previewImage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例代码-1"><span class="nav-number">2.1.</span> <span class="nav-text">示例代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OBJECT参数说明-1"><span class="nav-number">2.2.</span> <span class="nav-text">OBJECT参数说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wx-getImageInfo"><span class="nav-number">3.</span> <span class="nav-text">wx.getImageInfo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例代码-2"><span class="nav-number">3.1.</span> <span class="nav-text">示例代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OBJECT参数说明-2"><span class="nav-number">3.2.</span> <span class="nav-text">OBJECT参数说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解释"><span class="nav-number">3.2.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orientation参数说明："><span class="nav-number">3.2.2.</span> <span class="nav-text">orientation参数说明：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wx-saveImageToPhotosAlbum"><span class="nav-number">4.</span> <span class="nav-text">wx.saveImageToPhotosAlbum</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例代码-3"><span class="nav-number">4.1.</span> <span class="nav-text">示例代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OBJECT参数说明-3"><span class="nav-number">4.2.</span> <span class="nav-text">OBJECT参数说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解释-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">解释</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stt</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+<span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <a class="theme-link" target="_blank" href="https://github.com/2ue">2ue</a> 改造
+</div>
+
+
+
+<div>
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+    <div class="powered-by"></div>
+    <span class="post-count">共字</span>
+  </div>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
