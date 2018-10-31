@@ -341,12 +341,6 @@
     {### END POST BODY ###}
     {#####################}
 
-    {# 2ue 修改  #}
-    {% if not is_index %}
-      {% include 'passage-end-tag.swig' %}
-    {% endif %}
-    {# 2ue 修改  #}
-
     {% if theme.wechat_subscriber.enabled and not is_index %}
       <div>
         {% include 'wechat-subscriber.swig' %}

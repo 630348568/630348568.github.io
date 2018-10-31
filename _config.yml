@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 咕咚小鱼
+title: GD · 咕咚小鱼
 subtitle: 你灵魂的样子，往往会投射到你的脸上。要想越活越美，就请从内心开始修炼。
 description: 不怕犯错，怕的是重蹈覆辙；不怕过得不好，怕的是从来不相信自己可以过好。
 author: GD · 咕咚小鱼
@@ -23,10 +23,10 @@ avatar: /images/avatar.jpg
 menu:
   home: /
   archives: /archives
-  #about: /about
+  about: /about
   categories: /categories
   tags: /tags
-  #commonweal: /404.html
+  commonweal: /404.html
 
 # Directory
 source_dir: source
