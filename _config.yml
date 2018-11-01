@@ -20,13 +20,13 @@ permalink_defaults:
 # Avatar
 avatar: /images/avatar.jpg
 # menu config
-menu:
-  home: /
-  archives: /archives
-  about: /about
-  categories: /categories
-  tags: /tags
-  commonweal: /404.html
+# menu:
+#   home: /
+#   archives: /archives
+#   about: /about
+#   categories: /categories
+#   tags: /tags
+#   commonweal: /404.html
 
 # Directory
 source_dir: source

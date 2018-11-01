@@ -6,7 +6,7 @@ tags:
 - visibilitychange
 - javascript
 categories:
-- H5
+- [js,监测浏览器]
 ---
 
 > visibilitychange是H5的一个特性，当检测到浏览器标签页被隐藏（切换到其他标签/最小化到桌面）或者显示时候会触发

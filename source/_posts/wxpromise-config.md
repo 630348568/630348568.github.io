@@ -4,9 +4,9 @@ date: 2018-10-31 10:33:14
 author: T.2stt
 comments: true
 tags:
-- wxprogram-image
+- [wx小程序]
 categories:
-- wxprogram
+- [wx小程序]
 ---
 >小程序的配置包括全局配置和界面配置
 [全局配置](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE)app.json：pages、window、tabBar、networkTimeout、debug、functionalPages、subpackages、workers、requiredBackgroundModes、plugins、preloadRule、resizable、navigateToMiniProgramAppIdList

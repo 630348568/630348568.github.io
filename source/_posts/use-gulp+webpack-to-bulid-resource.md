@@ -1,13 +1,13 @@
 ---
 title: 使用webpack + gulp构建项目
-date: 2016-9-24 20:46:41
-author: J.2ue
+date: 2018-9-24 20:46:41
+author: T.2stt
 comments: true
 tags:
 - gulp
 - webpack
 categories:
-- tools
+- [工具,构建工具]
 
 ---
 

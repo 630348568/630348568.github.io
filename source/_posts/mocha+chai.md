@@ -1,13 +1,13 @@
 ---
 title: mocha+chai使用记录
 date: 2017-10-10 11:06:52
-author: J.2ue
+author: T.2stt
 comments: true
 tags:
 - javascript
 - test
 categories:
-- test
+- 测试工具
 ---
 
 >`mocha+chai`是比较流行的测试框架‘套装’，能实现一些基本的前端测试如函数功能测试，模拟登陆，异步测试,流程测试等

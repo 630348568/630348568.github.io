@@ -3,9 +3,9 @@ title: node-express的搭建
 date: 2018-09-17 11:02:07
 author: T.stt
 tags:
-- nodejs
+- [nodejs-express]
 categories:
-- tools---node
+- [js,nodejs,express]
 ---
 >node express搭建项目框架初始化搭建，查看文档学习-依据学习记录基础的操作（不断的积累学习）
 

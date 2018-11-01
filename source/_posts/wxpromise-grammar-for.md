@@ -1,12 +1,12 @@
 ---
-title: wxpromise-语法
+title: wxpromise-语法-for
 date: 2018-10-15 14:54:49
 author: T.2stt
 comments: true
 tags:
-- wxprogram-element
+- [wx小程序]
 categories:
-- wxprogram
+- [wx小程序]
 ---
 
 >此章节记载的是 wxpromise中使用语法的方法wx:for

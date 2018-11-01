@@ -6,7 +6,7 @@ tags:
 - Notification
 - javascript
 categories:
-- H5
+- [js,特殊功能,web桌面通知]
 ---
 
 > Notification 对象用来为用户设置和显示桌面通知，Web Notifications API 可以将通知发送至页面之外的系统层级上，因此，即便应用处于空闲状态或是在后台，web 应用仍然可以通过这个 API 向用户发送信息。比如网页版微信，每当用户收到一条新的消息，就会有一条通知显示给用户

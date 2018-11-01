@@ -5,7 +5,7 @@ author: T.stt
 tags:
 - git
 categories:
-- tools---git
+- [工具,git]
 ---
 
 > 记录如何配置公钥的所有的历程

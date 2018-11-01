@@ -4,9 +4,9 @@ date: 2018-05-07 20:26:31
 author: T.2stt
 comments: true
 tags:
-- wxprogram-element
+- [wx小程序，image元素]
 categories:
-- wxprogram
+- [wx小程序]
 ---
 
 >此章节记载的是 wxpromise的元素与html的差别,通过对比的方式进行学习

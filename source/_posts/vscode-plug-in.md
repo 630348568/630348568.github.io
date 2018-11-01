@@ -4,9 +4,9 @@ date: 2018-05-06 19:51:28
 author: T.2stt
 comments: true
 tags:
-- vscode-plug-in
+- [工具-vscode]
 categories:
-- tools-vscode
+- [工具,开发工具,vscode]
 ---
 
 >此章节记载的是 vscode 插件的使用介绍。针对于前端，小程序，css，html，nodejs，ts，es6，es7等使用

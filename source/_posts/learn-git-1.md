@@ -5,7 +5,7 @@ author: T.stt
 tags:
 - git
 categories:
-- tools---git
+- [工具,git]
 ---
 
 > 工欲善其事，必先利其器。git一个不可或缺的利器，其魅力值得我们慢慢品尝！

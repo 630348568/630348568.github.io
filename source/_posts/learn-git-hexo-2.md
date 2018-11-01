@@ -3,15 +3,16 @@ title: git-hexo-next 主题的更改
 date: 2018-02-12 18:32:00
 author: T.stt
 tags:
-- git
+- git-hexo
 categories:
-- tools---git-hexo
+- [工具,hexo]
 ---
 
 >根据自己的需求去将hexo-next的皮肤外观以及需求变得符合自己，创造一个全新不一样的你
 -背景的更改
 -页面展示尺寸的更改
 
+---
 # 背景配置
 
 ## 整体的背景配置
@@ -39,3 +40,6 @@ categories:
 	.content-wrap 这个选择器下的把width: $content-desktop;改成width: calc(100% - 260px);
 	- 即左边宽度加上margin值
 ```
+
+---
+# [Hexo+Next个人博客主题优化](https://www.jianshu.com/p/efbeddc5eb19)
