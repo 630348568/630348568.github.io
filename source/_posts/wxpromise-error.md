@@ -4,9 +4,9 @@ date: 2018-10-17 11:49:06
 author: T.2stt
 comments: true
 tags:
-- wxprogram-element
+- [wx小程序]
 categories:
-- wxprogram
+- [wx小程序]
 ---
 
 >记下踩过的坑1.宽度100%超过界面；2.传boolean类型的值

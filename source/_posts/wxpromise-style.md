@@ -4,9 +4,9 @@ date: 2018-05-07 20:26:20
 author: T.2stt
 comments: true
 tags:
-- wxprogram-element
+- [wx小程序]
 categories:
-- wxprogram
+- [wx小程序]
 ---
 
 >此章节记载的是 wxpromise的style与css的差别(rpx、样式导入、内联样式、选择器)

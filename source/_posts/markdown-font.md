@@ -4,9 +4,9 @@ date: 2018-05-06 19:35:06
 author: T.2stt
 comments: true
 tags:
-- markdown-font
-categories:
 - markdown
+categories:
+- [工具,markdown]
 ---
 
 >此章节记载的是markdown编辑器语法——文字颜色、大小、字体与背景色的设置。

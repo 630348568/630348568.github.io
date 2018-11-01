@@ -1,7 +1,7 @@
 ---
 title: Babun导致本地SSH-KEY不可用
 date: 2017-6-15 19:11:24
-author: J.2ue
+author: T.2stt
 comments: true
 tags:
 - Babun
@@ -9,7 +9,7 @@ tags:
 - shell
 - git
 categories:
-- tools
+- [工具,操作类]
 ---
 
 > Babun是一款集颜值功能于一身的window平台下的命令行工具。它集成了zsh、Cygwin等强大的工具，支持各种配置，并且有丰富的插件支持；并且有丰富的命令和命令提示功能，以及超级棒的历史命令提示。

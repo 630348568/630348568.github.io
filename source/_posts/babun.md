@@ -1,7 +1,7 @@
 ---
 title: windows平台下超强的cmd工具Babun使用笔记
 date: 2017-3-15 13:01:33
-author: J.2ue
+author: T.2stt
 comments: true
 tags:
 - Babun
@@ -9,7 +9,7 @@ tags:
 - shell
 - git
 categories:
-- tools
+- [工具,操作类]
 
 ---
 

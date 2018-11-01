@@ -3,9 +3,9 @@ title: git-Hexo搭建填坑
 date: 2018-2-12 10:50:01
 author: T.stt
 tags:
-- git
+- git-hexo
 categories:
-- tools---git-hexo
+- [工具,hexo]
 ---
 
 > 记录hexo的开发操作,包括安装hexo--部署hexo--hexo命令--操作中的报错处理--hexo管理--hexo使用的插件。一步步的积累，一步步的改善，制作自己的一个小博客

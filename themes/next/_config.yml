@@ -87,12 +87,12 @@ index_with_subtitle: false
 menu:
   home: / || home
   tags: /tags/ || tags
-  #categories: /categories/ || th
+  categories: /categories/ || th
   archives: /archives/ || archive
-  #schedule: /schedule/ || calendar
-  #sitemap: /sitemap.xml || sitemap
-  #commonweal: /404/ || heartbeat
-  about: https://2ue.github.io/aboutMe/dist/index.html
+  # schedule: /schedule/ || calendar
+  # sitemap: /sitemap.xml || sitemap
+  # commonweal: /404/ || heartbeat
+  # about: https://630348568.github.io/aboutMe/dist/index.html
 
 # Enable/Disable menu icons.
 menu_icons:

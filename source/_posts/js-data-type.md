@@ -6,8 +6,9 @@ comments: true
 tags:
 - typeof
 - object
+- js
 categories:
-- Javascript
+- [js,data,数据类型判断]
 ---
 
 > 类型判断是我们在编程中常遇到的棘手问题，严格的变量类型约束会为代码减少很多致命的BUG。本文是对常用到的类型判断的一个整理，以求以最简洁的方式来判断变量的类型。<br/>本文所有的如果没特指，都是基于ES5的原生javascript

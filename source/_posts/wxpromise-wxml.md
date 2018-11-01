@@ -1,12 +1,12 @@
 ---
-title: wxpromise-wxml
+title: wxpromise-wxml模板和组件
 date: 2018-10-16 16:05:04
 author: T.2stt
 comments: true
 tags:
-- wxprogram-element
+- [wx小程序]
 categories:
-- wxprogram
+- [wx小程序]
 ---
 
 >WXML

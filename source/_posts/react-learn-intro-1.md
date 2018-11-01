@@ -6,7 +6,7 @@ comments: true
 tags:
 - react
 categories:
-- react-base
+- react
 ---
 >react的初步介绍了以下相关信息：
 react的特点、react如何安装、react的JSX语法、react的组件、react的state以及react的props

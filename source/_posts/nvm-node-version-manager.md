@@ -1,14 +1,14 @@
 ---
 title: node和npm版本管理器nvm的安装和使用
 date: 2017-8-21 14:02:36
-author: J.2ue
+author: T.2stt
 comments: true
 tags:
 - nvm
 - node
 - npm
 categories:
-- tools
+- [工具,操作类]
 ---
 
 >nvm：一个node和npm的版本管理器（node&npm version manager），能让你快速的在不同版本间切换。

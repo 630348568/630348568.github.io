@@ -1,12 +1,12 @@
 ---
-title: wxpromise的图片
+title: wxpromise的图片选择获取
 date: 2018-05-06 13:54:43
 author: T.2stt
 comments: true
 tags:
-- wxprogram-image
+- [wx小程序]
 categories:
-- wxprogram
+- [wx小程序]
 ---
 >此章节记载的是微信小程序关于图片的一些功能。
 wx.chooseImage(OBJECT),从本地相册选择图片或使用相机拍照。

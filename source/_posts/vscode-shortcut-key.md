@@ -4,9 +4,9 @@ date: 2018-05-06 20:30:42
 author: T.2stt
 comments: true
 tags:
-- vscode-shortcut-key
+- [工具-vscode]
 categories:
-- tools-vscode
+- [工具,开发工具,vscode]
 ---
 
 >此章节记载的是 vscode 快捷键，有助于代码的快速编辑（常用的）

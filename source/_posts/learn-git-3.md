@@ -5,7 +5,7 @@ author: T.stt
 tags:
 - git
 categories:
-- tools---git
+- [工具,git]
 ---
 
 > 记录一些项目中常用的git命令，方便查阅
