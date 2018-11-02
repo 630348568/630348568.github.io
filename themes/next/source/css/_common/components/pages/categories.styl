@@ -7,6 +7,36 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    // stt新加内容
+    >.category-list-item{
+      list-style: square!important;
+      color:#59827b;
+      >.category-list-link{
+        font-weight:bold;
+        font-size:20px;
+        color:#59827b;
+        text-decoration:none!important;
+      }
+      >ul{
+        >.category-list-item{
+          list-style: disc!important;
+          color:#666;
+          >a{
+            color:#666;
+            font-weight:600;
+            text-decoration:none;
+          }
+          >ul>.category-list-item{
+            color:#bbb;
+            >a{
+              color:#bbb;
+              text-decoration:none;
+            }
+          }
+        }
+      }
+    }
+    // stt新加内容
   }
 
   .category-list-item { margin: 5px 10px; }
@@ -23,5 +53,5 @@
     }
   }
 
-  .category-list-child { padding-left: 10px; }
+  .category-list-child { padding-left: 10px;}
 }
