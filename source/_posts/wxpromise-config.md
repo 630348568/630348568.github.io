@@ -1,5 +1,5 @@
 ---
-title: wxpromise-config基本配置
+title: -config基本配置
 date: 2018-10-31 10:33:14
 author: T.2stt
 comments: true
