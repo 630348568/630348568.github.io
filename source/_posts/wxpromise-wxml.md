@@ -1,5 +1,5 @@
 ---
-title: wxpromise-wxml模板和组件
+title: -wxml模板和组件
 date: 2018-10-16 16:05:04
 author: T.2stt
 comments: true

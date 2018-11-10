@@ -1,5 +1,5 @@
 ---
-title: wxpromise-常见bug
+title: -常见bug
 date: 2018-10-17 11:49:06
 author: T.2stt
 comments: true

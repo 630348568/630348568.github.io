@@ -1,5 +1,5 @@
 ---
-title: wxpromise的图片选择获取
+title: -图片选择获取
 date: 2018-05-06 13:54:43
 author: T.2stt
 comments: true

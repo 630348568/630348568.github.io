@@ -1,5 +1,5 @@
 ---
-title: wxpromise-语法-for
+title: -语法-for
 date: 2018-10-15 14:54:49
 author: T.2stt
 comments: true
