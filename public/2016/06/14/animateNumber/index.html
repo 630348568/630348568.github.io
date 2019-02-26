@@ -114,7 +114,7 @@
 <meta property="og:description" content="利用jquery的插件jquery.animateNumber实现一个简单的数字滚动效果  需求分析 处理数据：因为数据是后端提供，所以有可能格式不是我们想要的，所以也许需要格式化数据； 根据页面设计的效果图（如图），需要把数字字符串拆分成单个数字字符串  每一个数字进行滚动变化 最后，在项目中，我选取了插件jquery.animateNumber来实现滚动效果。这个插件的使用方式很简单，在官方">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://630348568.github.io/images/posts/animateNumber_01.png">
-<meta property="og:updated_time" content="2018-07-30T01:55:33.664Z">
+<meta property="og:updated_time" content="2018-10-31T10:11:07.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现数字滚动变化以及延伸">
 <meta name="twitter:description" content="利用jquery的插件jquery.animateNumber实现一个简单的数字滚动效果  需求分析 处理数据：因为数据是后端提供，所以有可能格式不是我们想要的，所以也许需要格式化数据； 根据页面设计的效果图（如图），需要把数字字符串拆分成单个数字字符串  每一个数字进行滚动变化 最后，在项目中，我选取了插件jquery.animateNumber来实现滚动效果。这个插件的使用方式很简单，在官方">
@@ -153,6 +153,16 @@
 
 
 
+<script>
+  (function(){
+      if(''){
+          if (prompt('请输入文章密码') !== ''){
+              alert('密码错误');
+              history.back();
+          }
+      }
+  })();
+</script>
 
   <title>实现数字滚动变化以及延伸 | GD · 咕咚小鱼</title>
   
@@ -239,22 +249,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="https://2ue.github.io/aboutMe/dist/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
-            
-            关于
+            时间轴
           </a>
         </li>
       
@@ -408,17 +418,6 @@
     
 
     
-    
-      
-  <div class="post_end_word">
-    <p>THE END&nbsp;<i class="fa fa-fw fa-heart"></i>&nbsp;THANKS FOR YOU READING</p>
-  </div>
-
-
-    
-    
-
-    
 
     
       <div>
@@ -464,7 +463,7 @@
   <p><span>本文标题:</span><a href="/2016/06/14/animateNumber/">实现数字滚动变化以及延伸</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 J.2ue 的个人博客">GD · 咕咚小鱼</a></p>
   <p><span>发布时间:</span>2016年06月14日 - 12:06</p>
-  <p><span>最后更新:</span>2018年07月30日 - 09:07</p>
+  <p><span>最后更新:</span>2018年10月31日 - 18:10</p>
   <p><span>原始链接:</span><a href="/2016/06/14/animateNumber/" title="实现数字滚动变化以及延伸">http://630348568.github.io/2016/06/14/animateNumber/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://630348568.github.io/2016/06/14/animateNumber/" aria-label="复制成功！"></i></span>
   </p>
@@ -592,7 +591,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +602,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -696,7 +695,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -717,7 +716,7 @@
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 <span class="post-meta-divider">|</span>
 <div class="theme-info">
-  <a class="theme-link" target="_blank" href="https://github.com/2ue">2ue</a> 改造
+  咕咚小鱼的小天堂
 </div>
 
 
@@ -911,3 +910,5 @@
 
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="GD · 咕咚小鱼">
 <meta property="og:description" content="react的初步介绍了以下相关信息：react的特点、react如何安装、react的JSX语法、react的组件、react的state以及react的props  React 特点1.声明式设计 ———— React采用声明范式，可以轻松描述应用。2.高效 ———— React通过对DOM的模拟，最大限度地减少与DOM的交互。3.灵活 ———— React可以与已知的库或框架很好地配合。4.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-30T07:46:04.440Z">
+<meta property="og:updated_time" content="2019-02-25T08:26:57.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react初步学习">
 <meta name="twitter:description" content="react的初步介绍了以下相关信息：react的特点、react如何安装、react的JSX语法、react的组件、react的state以及react的props  React 特点1.声明式设计 ———— React采用声明范式，可以轻松描述应用。2.高效 ———— React通过对DOM的模拟，最大限度地减少与DOM的交互。3.灵活 ———— React可以与已知的库或框架很好地配合。4.">
@@ -151,6 +151,16 @@
 
 
 
+<script>
+  (function(){
+      if(''){
+          if (prompt('请输入文章密码') !== ''){
+              alert('密码错误');
+              history.back();
+          }
+      }
+  })();
+</script>
 
   <title>react初步学习 | GD · 咕咚小鱼</title>
   
@@ -237,22 +247,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="https://2ue.github.io/aboutMe/dist/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
-            
-            关于
+            时间轴
           </a>
         </li>
       
@@ -341,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-base/" itemprop="url" rel="index">
-                    <span itemprop="name">react-base</span>
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
                   </a>
                 </span>
 
@@ -444,17 +454,6 @@ create-react-app 自动创建的项目是基于 Webpack + ES6 。
     
 
     
-    
-      
-  <div class="post_end_word">
-    <p>THE END&nbsp;<i class="fa fa-fw fa-heart"></i>&nbsp;THANKS FOR YOU READING</p>
-  </div>
-
-
-    
-    
-
-    
 
     
       <div>
@@ -500,7 +499,7 @@ create-react-app 自动创建的项目是基于 Webpack + ES6 。
   <p><span>本文标题:</span><a href="/2018/05/22/react-learn-intro-1/">react初步学习</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 T.2stt 的个人博客">GD · 咕咚小鱼</a></p>
   <p><span>发布时间:</span>2018年05月22日 - 21:05</p>
-  <p><span>最后更新:</span>2018年07月30日 - 15:07</p>
+  <p><span>最后更新:</span>2019年02月25日 - 16:02</p>
   <p><span>原始链接:</span><a href="/2018/05/22/react-learn-intro-1/" title="react初步学习">http://630348568.github.io/2018/05/22/react-learn-intro-1/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://630348568.github.io/2018/05/22/react-learn-intro-1/" aria-label="复制成功！"></i></span>
   </p>
@@ -541,8 +540,8 @@ create-react-app 自动创建的项目是基于 Webpack + ES6 。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/07/wxpromise-element/" rel="next" title="wxpromise的元素（试图容器）">
-                <i class="fa fa-chevron-left"></i> wxpromise的元素（试图容器）
+              <a href="/2018/05/07/wxpromise-element/" rel="next" title="-元素（试图容器）">
+                <i class="fa fa-chevron-left"></i> -元素（试图容器）
               </a>
             
           </div>
@@ -632,7 +631,7 @@ create-react-app 自动创建的项目是基于 Webpack + ES6 。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -643,7 +642,7 @@ create-react-app 自动创建的项目是基于 Webpack + ES6 。
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -736,7 +735,7 @@ create-react-app 自动创建的项目是基于 Webpack + ES6 。
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -757,7 +756,7 @@ create-react-app 自动创建的项目是基于 Webpack + ES6 。
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 <span class="post-meta-divider">|</span>
 <div class="theme-info">
-  <a class="theme-link" target="_blank" href="https://github.com/2ue">2ue</a> 改造
+  咕咚小鱼的小天堂
 </div>
 
 
@@ -951,3 +950,5 @@ create-react-app 自动创建的项目是基于 Webpack + ES6 。
 
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

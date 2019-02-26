@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="GD · 咕咚小鱼">
 <meta property="og:description" content="人类只有不断地总结经验,才会有所 发现,有所发明,有所创造,有所前进。在学习中也一样，需要不断的总结，踩坑。此文记载react的项目中踩的坑，以及经验之谈，只有不断的去尝试才能更加的得心应手。包括onClick  事件生命1.只要是通过onXXX事件调用的都必须是handle开头进行方法生命1onClick=&amp;#123; () =&amp;gt; &amp;#123; this.handleNextSameCl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-15T09:28:51.481Z">
+<meta property="og:updated_time" content="2018-11-01T10:00:45.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react项目中的统计">
 <meta name="twitter:description" content="人类只有不断地总结经验,才会有所 发现,有所发明,有所创造,有所前进。在学习中也一样，需要不断的总结，踩坑。此文记载react的项目中踩的坑，以及经验之谈，只有不断的去尝试才能更加的得心应手。包括onClick  事件生命1.只要是通过onXXX事件调用的都必须是handle开头进行方法生命1onClick=&amp;#123; () =&amp;gt; &amp;#123; this.handleNextSameCl">
@@ -151,6 +151,16 @@
 
 
 
+<script>
+  (function(){
+      if(''){
+          if (prompt('请输入文章密码') !== ''){
+              alert('密码错误');
+              history.back();
+          }
+      }
+  })();
+</script>
 
   <title>react项目中的统计 | GD · 咕咚小鱼</title>
   
@@ -237,22 +247,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="https://2ue.github.io/aboutMe/dist/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
-            
-            关于
+            时间轴
           </a>
         </li>
       
@@ -341,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-project/" itemprop="url" rel="index">
-                    <span itemprop="name">react-project</span>
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
                   </a>
                 </span>
 
@@ -387,17 +397,6 @@
       
     </div>
     
-    
-    
-
-    
-    
-      
-  <div class="post_end_word">
-    <p>THE END&nbsp;<i class="fa fa-fw fa-heart"></i>&nbsp;THANKS FOR YOU READING</p>
-  </div>
-
-
     
     
 
@@ -447,7 +446,7 @@
   <p><span>本文标题:</span><a href="/2018/07/30/react-learn-intro-2/">react项目中的统计</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 T.2stt 的个人博客">GD · 咕咚小鱼</a></p>
   <p><span>发布时间:</span>2018年07月30日 - 15:07</p>
-  <p><span>最后更新:</span>2018年09月15日 - 17:09</p>
+  <p><span>最后更新:</span>2018年11月01日 - 18:11</p>
   <p><span>原始链接:</span><a href="/2018/07/30/react-learn-intro-2/" title="react项目中的统计">http://630348568.github.io/2018/07/30/react-learn-intro-2/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://630348568.github.io/2018/07/30/react-learn-intro-2/" aria-label="复制成功！"></i></span>
   </p>
@@ -579,7 +578,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,7 +589,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -683,7 +682,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -704,7 +703,7 @@
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 <span class="post-meta-divider">|</span>
 <div class="theme-info">
-  <a class="theme-link" target="_blank" href="https://github.com/2ue">2ue</a> 改造
+  咕咚小鱼的小天堂
 </div>
 
 
@@ -898,3 +897,5 @@
 
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

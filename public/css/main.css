@@ -1972,7 +1972,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #5060cb;
+  background: #df8b06;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2553,6 +2553,32 @@ pre .javascript .function {
   padding: 0;
   list-style: none;
 }
+.category-all-page .category-list >.category-list-item {
+  list-style: square !important;
+  color: #59827b;
+}
+.category-all-page .category-list >.category-list-item >.category-list-link {
+  font-weight: bold;
+  font-size: 20px;
+  color: #59827b;
+  text-decoration: none !important;
+}
+.category-all-page .category-list >.category-list-item >ul >.category-list-item {
+  list-style: disc !important;
+  color: #666;
+}
+.category-all-page .category-list >.category-list-item >ul >.category-list-item >a {
+  color: #666;
+  font-weight: 600;
+  text-decoration: none;
+}
+.category-all-page .category-list >.category-list-item >ul >.category-list-item >ul>.category-list-item {
+  color: #bbb;
+}
+.category-all-page .category-list >.category-list-item >ul >.category-list-item >ul>.category-list-item >a {
+  color: #bbb;
+  text-decoration: none;
+}
 .category-all-page .category-list-item {
   margin: 5px 10px;
 }
@@ -2746,7 +2772,7 @@ pre .javascript .function {
 .header {
   position: relative;
   margin: 0 auto;
-  width: 1220px;
+  width: 75%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .header {
@@ -2764,7 +2790,7 @@ pre .javascript .function {
   overflow: hidden;
   padding: 0;
   width: 240px;
-  background: #fff;
+  background: rgba(255,255,255,0.75) none repeat scroll !important;
   box-shadow: initial;
   border-radius: initial;
 }
@@ -2795,18 +2821,8 @@ pre .javascript .function {
 .main:after {
   clear: both;
 }
-@media (min-width: 768px) and (max-width: 991px) {
-  .main {
-    padding-bottom: 100px;
-  }
-}
-@media (max-width: 767px) {
-  .main {
-    padding-bottom: 100px;
-  }
-}
 .container .main-inner {
-  width: 1220px;
+  width: 75%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .container .main-inner {
@@ -2822,8 +2838,8 @@ pre .javascript .function {
   float: right;
   box-sizing: border-box;
   padding: 40px;
-  width: 960px;
-  background: #fff;
+  width: calc(100% - 260px);
+  background: rgba(255,255,255,0.75) none repeat scroll !important;
   min-height: 700px;
   box-shadow: initial;
   border-radius: initial;
@@ -2848,7 +2864,7 @@ pre .javascript .function {
   float: left;
   margin-top: 300px;
   width: 240px;
-  background: #f5f7f9;
+  background: rgba(255,255,255,0.75) none repeat scroll !important;
   box-shadow: none;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -3005,7 +3021,7 @@ pre .javascript .function {
   box-sizing: border-box;
   width: 240px;
   color: #555;
-  background: #fff;
+  background: rgba(255,255,255,0.75) none repeat scroll !important;
   box-shadow: initial;
   border-radius: initial;
   opacity: 0;

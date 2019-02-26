@@ -114,7 +114,7 @@
 <meta property="og:description" content="众所周知，虽然javascript中关于时间的API有不少，我们可以通过方法单独的获取年、月、日、时、分、秒、毫秒…貌似很多，最近写了一个日历（以前写的，但写得很烂，最近优化一下），所以下面简单的记录一下如何写一个日历，列出了一些我在写日历过程中自己封装的一些方法  效果图先来一张效果图，由于没有UI设计，所以就自己简单的设计了一个样式（好歹我也是设计专业的，虽然已不做设计很多年），虽然略丑，但">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://630348568.github.io/images/posts/datepicker.gif">
-<meta property="og:updated_time" content="2018-07-30T01:55:33.667Z">
+<meta property="og:updated_time" content="2018-10-31T10:11:07.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何写一个日历组件">
 <meta name="twitter:description" content="众所周知，虽然javascript中关于时间的API有不少，我们可以通过方法单独的获取年、月、日、时、分、秒、毫秒…貌似很多，最近写了一个日历（以前写的，但写得很烂，最近优化一下），所以下面简单的记录一下如何写一个日历，列出了一些我在写日历过程中自己封装的一些方法  效果图先来一张效果图，由于没有UI设计，所以就自己简单的设计了一个样式（好歹我也是设计专业的，虽然已不做设计很多年），虽然略丑，但">
@@ -153,6 +153,16 @@
 
 
 
+<script>
+  (function(){
+      if(''){
+          if (prompt('请输入文章密码') !== ''){
+              alert('密码错误');
+              history.back();
+          }
+      }
+  })();
+</script>
 
   <title>如何写一个日历组件 | GD · 咕咚小鱼</title>
   
@@ -239,22 +249,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="https://2ue.github.io/aboutMe/dist/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
-            
-            关于
+            时间轴
           </a>
         </li>
       
@@ -435,17 +445,6 @@
     
 
     
-    
-      
-  <div class="post_end_word">
-    <p>THE END&nbsp;<i class="fa fa-fw fa-heart"></i>&nbsp;THANKS FOR YOU READING</p>
-  </div>
-
-
-    
-    
-
-    
 
     
       <div>
@@ -491,7 +490,7 @@
   <p><span>本文标题:</span><a href="/2017/11/02/how-to-make-a-kalendar/">如何写一个日历组件</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 J.2ue 的个人博客">GD · 咕咚小鱼</a></p>
   <p><span>发布时间:</span>2017年11月02日 - 10:11</p>
-  <p><span>最后更新:</span>2018年07月30日 - 09:07</p>
+  <p><span>最后更新:</span>2018年10月31日 - 18:10</p>
   <p><span>原始链接:</span><a href="/2017/11/02/how-to-make-a-kalendar/" title="如何写一个日历组件">http://630348568.github.io/2017/11/02/how-to-make-a-kalendar/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://630348568.github.io/2017/11/02/how-to-make-a-kalendar/" aria-label="复制成功！"></i></span>
   </p>
@@ -544,8 +543,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/24/regex-to-something/" rel="prev" title="一道小小的题目引发对javascript支持正则表达式相关方法的探讨">
-                一道小小的题目引发对javascript支持正则表达式相关方法的探讨 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/07/Hexo-Next主题优化/" rel="prev" title="Hexo+Next主题优化">
+                Hexo+Next主题优化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -625,7 +624,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -636,7 +635,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -729,7 +728,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -750,7 +749,7 @@
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 <span class="post-meta-divider">|</span>
 <div class="theme-info">
-  <a class="theme-link" target="_blank" href="https://github.com/2ue">2ue</a> 改造
+  咕咚小鱼的小天堂
 </div>
 
 
@@ -944,3 +943,5 @@
 
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
