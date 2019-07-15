@@ -167,4 +167,11 @@ sitemap:
     baidusitemap:
         path: baidusitemap.xml
 ```
+### 添加图片
+{% asset_img xxx.png 图片介绍 %}
+其中 `xxx` 是与文件同名文件夹下的图片名字
+`图片介绍` 是用于展示图片干嘛用的
 
+### 访问自己的文件
+{% post_link xxx %};
+`xxx` 表示访问的文件名 例如 `js-apply-call-bind`

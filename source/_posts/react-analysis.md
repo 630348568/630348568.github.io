@@ -60,36 +60,174 @@ console.log(component.props.foo); // 'override'
 一个组件类由 extends Component 创建，并且提供一个 render 方法以及其他可选的生命周期函数、组件相关的事件或方法来定义。
 #### getInitialState
 初始化 this.state 的值，只在组件装载之前调用一次。
-```bash
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { count: props.initialCount };
-  }
+```javascript
+import React,{ Component } from 'react';
 
-  render() {
-    // ...
-  }
-}
+class Demo extends Component {
+  constructor(props,context) {
+        super(props,context)
+        this.state = {
+            //定义state
+        }
+    }
+    componentWillMount () {
+    }
+    componentDidMount () {
+    }
+    componentWillReceiveProps (nextProps) {
+    }
+    shouldComponentUpdate (nextProps,nextState) {
+    }
+    componentWillUpdate (nextProps,nextState) {
+    }
+    componentDidUpdate (prevProps,prevState) {
+    }
+    render () {
+        return (
+        <div></div>
+    )}
+    componentWillUnmount () {
+    }
+    }
+export default Demo;
 ```
 #### getDefaultProps
 Counter.defaultProps = { initialCount: 0 };
 
+#### constructor
+constructor参数接受两个参数props,context。可以获取到父组件传下来的的props,context,如果你想在constructor构造函数内部(注意是内部哦，在组件其他地方是可以直接接收的)使用props或context,则需要传入，并传入super对象。
+```javascript
+constructor(props,context) {
+  super(props,context)
+  console.log(this.props,this.context) // 在内部可以使用props和context
+}
+// 当然如果你只需要在构造函数内使用props或者context，那么只传入一个参数即可，如果都不需要，就都不传。
+```
+```javascript
+constructor() {
+  console.log(this) // 报错，this指向错误
+}
+// 关于ES6的class constructor和super,只要组件存在constructor,就必要要写super,否则this指向会错误
+```
 #### render(必须要有)
 组装生成这个组件的 HTML 结构（使用原生 HTML 标签或者子组件），也可以返回 null 或者 false，这时候 ReactDOM.findDOMNode(this) 会返回 null。
+```javascript
+render函数会插入jsx生成的dom结构，react会生成一份虚拟dom树，在每一次组件更新时，在此react会通过其diff算法比较更新前后的新旧DOM树，比较以后，找到最小的有差异的DOM节点，并重新渲染
+react16中 render函数允许返回一个数组，单个字符串等
+即可以
+render () {
+  return " "
+}
+或者
+render () {
+  return [
+                <div></div>
+             <div></div>
+]
+}
+```
 
 #### 生命周期函数
 - 装载组件触发
-<font color="red">componentWillMount</font>：只会在装载之前调用一次，render 之前调用，你可以在这个方法里面调用 setState 改变状态，并且不会导致额外调用一次 render；
-<font color="red">componentDidMount</font>：只会在装载完成之后调用一次，在 render 之后调用，从这里开始可以通过 ReactDOM.findDOMNode(this) 获取到组件的 DOM 节点。
+<font color="red">componentWillMount</font>组件将要挂载：
+```bash
+组件刚经历constructor,初始完数据;
+组件还未进入render，组件还未渲染完成，dom还未渲染,你可以在这个方法里面调用 setState 改变状态，并且不会导致额外调用一次 render;
+一般用的比较少，更多的是用在服务端渲染;
+```
+    【注意】
+    ```javascript
+    ：ajax请求能写在willmount里吗？
+    ：答案是不推荐，别这么写
+    // 1.虽然有些情况下并不会出错，但是如果ajax请求过来的数据是空，那么会影响页面的渲染，可能看到的就是空白。
+    // 2.不利于服务端渲染，在同构的情况下，生命周期会到componentwillmount，这样使用ajax就会出错
+    ```
+    <font color="red">componentDidMount</font>组件渲染完成：
+    ```javascript
+    从这里开始可以通过 ReactDOM.findDOMNode(this) 获取到组件的 DOM 节点;
+    可以在这里调用ajax请求，返回数据setState后组件会重新渲染;
+    ```
 - 更新组件触发（不会在首次 render 组件的周期调用）
-<font color="red">componentWillReceiveProps</font>：啊发顺丰
-<font color="red">shouldComponentUpdate</font>：阿斯顿发多少
-<font color="red">componentWillUpdate</font>：大师傅
-<font color="red">componentDidUpdate</font>：打发第三方
+<font color="red">componentWillReceiveProps(nextProps)</font>：在接受父组件改变后的props需要重新渲染组件时用到的比较多
+    ```javascript
+    // nextProps:通过对比nextProps和this.props，将nextProps setState为当前组件的state，从而重新渲染组件
+    componentWillReceiveProps (nextProps) {
+        nextProps.openNotice !== this.props.openNotice && this.setState({
+            openNotice:nextProps.openNotice
+        }，() => {
+        console.log(this.state.openNotice:nextProps) //将state更新为nextProps,在setState的第二个参数（回调）可以打印出新的state
+    })
+    }
+    ```
+    <font color="red">shouldComponentUpdate(nextProps,nextState)</font>：唯一用于控制组件重新渲染的生命周期，提升性能的优化
+    ```javascript
+    由于在react中，setState以后，state发生变化，组件会进入重新渲染的流程，在这里return false可以阻止组件的更新；
+    因为react父组件的重新渲染会导致其所有子组件的重新渲染，这个时候其实我们是不需要所有子组件都跟着重新渲染的，因此需要在子组件的该生命周期中做判断
+    ```
+    <font color="red">componentWillUpdate (nextProps,nextState)</font>：shouldComponentUpdate返回true以后，组件进入重新渲染的流程，进入componentWillUpdate,这里同样可以拿到nextProps和nextState
+    <font color="red">componentDidUpdate(prevProps,prevState)</font>：每次重新渲染后都会进入这个生命周期，这里可以拿到prevProps和prevState，即更新前的props和state。
 - 卸载组件触发
-<font color="red">componentWillUnmount</font>：按时发生
+<font color="red">componentWillUnmount</font>：清除定时器等
+```javascript
+    clear你在组建中所有的setTimeout,setInterval；
+    移除所有组建中的监听 removeEventListener；
 
+    也许你会经常遇到这个warning:
+    // Can only update a mounted or mounting component. This usually means you called setState() on an unmounted component. 
+    // This is a no-op. Please check the code for the undefined component.
+    // 是因为你在组建中的ajax请求返回中setState,而你组件销毁的时候，请求还未完成，因此会报warning
+    解决办法为
+    componentDidMount() {
+        this.isMount === true
+        axios.post().then((res) => {
+            this.isMount && this.setState({   // 增加条件ismount为true时
+                aaa:res
+            })
+        })
+    }
+    componentWillUnmount() {
+        this.isMount === false
+    }
+```
+#### react生命周期父子组件渲染顺序
+父子组件， componentWillMount生命周期是先进入父组件还是子组件？componentDidMount呢？
+```javascript
+/**
+ * ------------------ The Life-Cycle of a Composite Component ------------------
+ *
+ * - constructor: Initialization of state. The instance is now retained.
+ *   - componentWillMount
+ *   - render
+ *   - [children's constructors]          // 子组件constructor()
+ *     - [children's componentWillMount and render]   // 子组件willmount render
+ *     - [children's componentDidMount]  // 子组件先于父组件完成挂载didmount
+ *     - componentDidMount
+ *
+ *       Update Phases:
+ *       - componentWillReceiveProps (only called if parent updated)
+ *       - shouldComponentUpdate
+ *         - componentWillUpdate
+ *           - render
+ *           - [children's constructors or receive props phases]
+ *         - componentDidUpdate
+ *
+ *     - componentWillUnmount
+ *     - [children's componentWillUnmount]
+ *   - [children destroyed]
+ * - (destroyed): The instance is now blank, released by React and ready for GC.
+ *
+ * -----------------------------------------------------------------------------
+ */
+```
+所以在react的组件挂载及render过程中，最底层的子组件是最先完成挂载及更新的。
+constructor()构造函数、componentWillMount执行顺序：
+顶层父组件--子组件--子组件--...--底层子组件
+render、componentDidMount顺序：
+底层子组件--子组件--子组件--...--顶层父组件
+update phases同理
+```bash
+挂在父先-父挂载子之后子的所有先完成，总分总的结构
+```
 ### 事件处理
 ？
 ### DOM 操作

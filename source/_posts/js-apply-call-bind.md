@@ -1,17 +1,19 @@
 ---
-title: apply-call-bind理解与比较
+title: Function对象方法apply-call-bind理解与比较
 date: 2019-02-25 17:20:43
 author: T.2stt
 comments: true
 tags:
 - [js]
 categories:
-- [js]
+- [js,ms]
 ---
-> apply() 方法调用一个具有给定this值的函数，以及作为一个数组（或类似数组对象）提供的参数。
+>改变函数内部this的指向
+每一个Function对象都有一个apply()方法和一个call()方法 
+apply() 方法调用一个具有给定this值的函数，以及作为一个数组（或类似数组对象）提供的参数。
 call() 方法调用一个函数, 其具有一个指定的this值和分别地提供的参数(参数的列表)。
 bind() 方法创建一个新的函数，在调用时设置this关键字为提供的值。并在调用新函数时，将给定参数列表作为原函数的参数序列的前若干项。
-注意：apply与call方法类似，只有一个区别，就是call()方法接受的是若干个参数的列表，而apply()方法接受的是一个包含多个参数的数组。
+注意：apply和call的功能是一样的，只是传入的参数列表形式不同,call()方法接受的是若干个参数的列表，而apply()方法接受的是一个包含多个参数的数组。
 [学习网址](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
 
 ## apply
@@ -77,10 +79,20 @@ arg1, arg2, ...:指定的参数列表。
 返回值：
 使用调用者提供的this值和参数调用该函数的返回值。若该方法没有返回值，则返回undefined。
 ```
+### 常用用法
+#### 验证是否是数组
+```javascript
+function   isArray(obj){ 
+    return Object.prototype.toString.call(obj) === '[object Array]' ;
+}
+```
 
 ## 个人总结
 ```bash
-bind- 生成新的函数
-call、apply- 是调用某个函数，并制定函数内this是谁，apply传叔祖为参数，call传多个参数
-             如果要想把 this 的值从一个环境传到另一个，就要用 call 或者apply 方法。
+bind- 返回对应函数，便于稍后调用；
+call、apply- 立即调用
+            1. 调用某个函数，并制定函数内this是谁，apply传数祖为参数，call传多个参数，
+                如果要想把 this 的值从一个环境传到另一个，就要用 call 或者apply 方法;
+             2. 调用一个对象的一个方法，用另一个对象替换当前对象，例如：B.apply(A, arguments);即A对象应用B对象的方法。
+             3. 调用一个对象的一个方法，用另一个对象替换当前对象，例如：B.call(A, args1,args2);即A对象调用B对象的方法。
 ```
