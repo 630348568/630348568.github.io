@@ -4,9 +4,9 @@ date:  2018-07-30 15:41:54
 author: T.2stt
 comments: true
 tags:
-- react
+- React
 categories:
-- react
+- [MV*框架,React]
 ---
 > 人类只有不断地总结经验,才会有所 发现,有所发明,有所创造,有所前进。在学习中也一样，需要不断的总结，踩坑。
 此文记载react的项目中踩的坑，以及经验之谈，只有不断的去尝试才能更加的得心应手。包括onClick

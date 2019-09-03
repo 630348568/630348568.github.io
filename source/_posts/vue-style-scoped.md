@@ -3,10 +3,10 @@ title: vue的style的scoped属性
 date: 2018-02-28 08:14:50
 author: T.2stt
 tags:
-- vue
-- vue-css
+- Vue
+- Vue-css
 categories:
-- vue
+- [MV*框架,Vue]
 ---
 
 > 在vue组件中，在style标签上添加scoped属性，以表示它的样式作用于当下的模块，很好的实现了样式私有化的目的，这是一个非常好的机制。但是要慎用,在实际业务中我们往往会对公共组件样式做细微的调整，如果添加了scoped属性，那么样式将会变得不易修改。

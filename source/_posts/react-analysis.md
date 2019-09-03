@@ -4,9 +4,9 @@ date: 2019-02-25 16:26:00
 author: T.2stt
 comments: true
 tags:
-- react
+- React
 categories:
-- react
+- [MV*框架,React]
 ---
 >React的新理解 + 注意事项 + 语法
 

@@ -4,10 +4,10 @@ date: 2019-07-11 17:05:56
 author: T.2stt
 comments: true
 tags:
-- regex
+- Regex
 - javascript
 categories:
-- [正则,regex]
+- [正则Regex]
 ---
 
 > 正则表达式 `(regular expression)` 描述了一种字符串匹配的模式 `（pattern）`，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串等。
@@ -254,15 +254,73 @@ reg1.test('$'); // false
 reg1.test('a'); // true
 reg1.test('$'); // false
 <!-- 以上是正常的 -->
-但是加上g
+但是加上g，多次执行会报错
 reg2.test('ab'); // true
 reg2.test('ab'); // true
 reg2.test('ab'); // false
 reg2.test('ab'); // true
 reg2.test('ab'); // true
 reg2.test('ab'); // false
-其实是lastIndex在作怪，第一次执行后会记住
+其实是lastIndex在作怪，第一次执行后会被记住，第三次会记住第二次的
 while(reg2.test('ab')){
-    console.log(reg2.lastIndex); // 1 2 第一次1，第二次是2，
+    console.log(reg2.lastIndex); // 1 2 第一次1，第二次是2， 第三次是3后面没有数据所以是false第四次又从1开始
 }
 ```
+
+### exec
+- 正则对字符串进行匹配，没有匹配的文本则返回 `null`, 否则返回一个结果数组：
+  - `index` 表示声明匹配的第一个字符的位置；
+  - `input` 表示存放在检索的字符串 `string`;
+
+#### 非全局调用
+- 如果能匹配到会返回一个数组；第一个元素是与正则表达式相匹配的文本；第二个是第一个分组返回的文本，第三个是第二个分组返回的文本，以此类推
+```
+var reg3 = /\d(\w)\d/;
+var reg4 = /\d(\w)\d/g;
+var ts = '1a2b33c4d5e';
+var ret = reg3.exec(ts);
+console.log(reg3.lastIndex + '\t' + res.index + '\t' + ret.toString()); // 0 0 1a2,a （lastIndex为0 实际是lastIndex不生效）
+console.log(reg4.lastIndex + '\t' + res.index + '\t' + ret.toString()); // 0 0 1a2,a
+<!-- ret是匹配结果 + 分组（多个分组）的内容, 更改一些变量的值 -->
+ts = '1az2bb3cy4dd5ee';
+reg3 = /\d(\w)(\w)\d/;
+=> 0 1 1az2,a,z
+```
+
+#### 全局 g
+```
+<!-- 全局搜索 -->
+reg4 = /\d(\w)(\w)\d/g;
+console.log(reg4.lastIndex + '\t' + res.index + '\t' + ret.toString()); // 5 1 1az2,a,z  11 7 3cy4,c,y
+```
+
+## 字符串对象方法
+### search
+- 检索与正则表达式想匹配的字符串
+- 返回 `第一个` 匹配结果的 `index`, 查找不到返回 `=1`;
+- 不执行全局匹配，忽略 `g` 标志，且从字符串的开始进行检索；
+```
+'a1b2c3d1'.search('1'); // 1
+'a1b2c3d1'.search('10'); // -1
+'a1b2c3d1'.search(1); // 1 (1会被常识转成正则 /1/)
+'a1b2c3d1'.search(/1/); // 1
+'a1b2c3d1'.search(/1/g); // 1
+```
+
+### match
+- 检索字符串，以找到一个或多个与正则匹配的文本；
+- 是否具有 `g` 标志对结果影响大；
+#### 非全局匹配
+- 只执行一次匹配；
+- 没有匹配到返回 `null`，否则返回一个数组（）第一个元素匹配的文本，其余的返回的是子表达式的文本以及两个对象属性；
+    - `index` 声明匹配文本起始字符的字符串位置；
+    -  `input` 声明对 `stringObject` 的源字符串引用；
+```
+var reg3 = /\d(\w)\d/;
+var reg4 = /\d(\w)\d/g;
+var ts = '1a2b33c4d5e';
+var ret = reg3.match(ts);
+console.log(ret);
+console.log(reg3.lastIndex + '\t' + ret.index);
+```
+

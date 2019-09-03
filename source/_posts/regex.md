@@ -3,10 +3,10 @@ title: 常用正则整理
 date: 2016-09-05 12:12:24
 author: T.2stt
 tags:
-- regex
+- Regex
 - javascript
 categories:
-- [正则,regex]
+- [正则Regex]
 ---
 
 > 正则的魅力在于使用很简洁的方式解决一些比较复杂的方式，使代码变得更优雅，也使实现的过程变得更简单透明。本文搜集整理一些常用正则，记录以便查阅

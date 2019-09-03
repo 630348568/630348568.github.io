@@ -4,11 +4,11 @@ date: 2018-02-23 18:16:06
 author: T.2stt
 comments: true
 tags:
-- vue
+- Vue
 categories:
-- vue
+- [MV*框架,Vue]
 ---
->vuejs轻量级，MVVM 结构。一下是其基本语法，包括：简单的demo，以及API的描述（配置，公共API），模板渲染的前端框架（数据渲染，组件化/模块化其他功能：路由，ajax，数据流）等的介绍
+>vuejs轻量级，MVVM 结构。以下是其基本语法，包括：简单的demo，以及API的描述（配置，公共API），模板渲染的前端框架（数据渲染，组件化/模块化其他功能：路由，ajax，数据流）等的介绍
 
 ## 最简单的例子
 ### demo

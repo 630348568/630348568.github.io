@@ -4,10 +4,10 @@ date: 2018-02-28 08:14:50
 author: T.2stt
 comments: true
 tags:
-- vue
+- Vue
 - js
 categories:
-- vue
+- [MV*框架,Vue]
 ---
 ##### [官网](https://vuefe.cn/v2/api/#v-bind)
 ##### v-text、v-html

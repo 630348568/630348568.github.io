@@ -4,9 +4,9 @@ date: 2018-05-22 21:21:45
 author: T.2stt
 comments: true
 tags:
-- react
+- React
 categories:
-- react
+- [MV*框架,React]
 ---
 >react的初步介绍了以下相关信息：
 react的特点、react如何安装、react的JSX语法、react的组件、react的state以及react的props

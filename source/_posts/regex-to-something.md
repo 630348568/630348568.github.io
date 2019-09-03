@@ -4,10 +4,10 @@ date: 2017-11-24 9:57:10
 author: T.2stt
 comments: true
 tags:
-- regex
+- Regex
 - javascript
 categories:
-- [正则,regex]
+- [正则Regex]
 ---
 
 > 此文说一说关于javascript中关于正则的几个方法中被很多人忽略的地方。
